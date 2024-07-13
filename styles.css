@@ -15,9 +15,13 @@ body {
 }
 
 button {
+  color: #fff;
   font-family: var(--font);
   font-size: 24px;
   font-weight: bold;
+  border-radius: var(--border-radius);
+  border: 1px solid;
+  box-shadow: var(--shadow);
   flex: 1;
 }
 
@@ -76,4 +80,16 @@ button {
 
 .equals-btn {
   max-width: calc(25% - 6px);
+  background: linear-gradient(#f7616b, #ef3f4a);
+  border-color: #ef3f4a;
+}
+
+.digit-btn {
+  background: linear-gradient(#595959, #000);
+  border-color: #000;
+}
+
+.func-btn {
+  background: linear-gradient(#7f7b74, #5a5549);
+  border-color: #5a5549;
 }
