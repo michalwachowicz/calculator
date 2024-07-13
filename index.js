@@ -57,6 +57,17 @@ const equals = () => {
   currentOperator = null;
 };
 
+const backspace = () => {
+  const text = screen.textContent;
+
+  if (text == "Error") {
+    screen.textContent = "";
+    return;
+  }
+
+  screen.textContent = text.substring(0, text.length - 1);
+};
+
 btnContainer.addEventListener("click", (e) => {
   const target = e.target;
   if (!target || target.type != "submit") return;
@@ -84,7 +95,5 @@ btnContainer.addEventListener("click", (e) => {
   }
 
   // Back button clicked
-  if (target.id == "back") {
-    return;
-  }
+  if (target.id == "back") backspace();
 });
