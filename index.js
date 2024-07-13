@@ -1,6 +1,11 @@
 const btnContainer = document.querySelector(".btn-container");
 const screen = document.querySelector(".screen");
 
+let firstNum = 0;
+let secondNum = 0;
+let currentOperator = null;
+let updated = false;
+
 const operate = (a, operator, b) => {
   switch (operator) {
     case "×":
@@ -18,7 +23,28 @@ const operate = (a, operator, b) => {
 
 const fill = (num) => {
   const text = screen.textContent;
-  screen.textContent = text === "0" ? num : text + num;
+
+  screen.textContent = text === "0" || updated ? num : text + num;
+  updated = false;
+};
+
+const updateOperator = (operator) => {
+  if (currentOperator) {
+    secondNum = Number(screen.textContent);
+    const total = operate(firstNum, operator, secondNum);
+
+    firstNum = total;
+    secondNum = 0;
+    currentOperator = operator;
+    updated = true;
+
+    screen.textContent = total;
+    return;
+  }
+
+  firstNum = Number(screen.textContent);
+  currentOperator = operator;
+  updated = true;
 };
 
 btnContainer.addEventListener("click", (e) => {
@@ -32,27 +58,13 @@ btnContainer.addEventListener("click", (e) => {
   if (target.classList.contains("equals-btn")) {
   }
 
+  if (target.classList.contains("operator")) updateOperator(target.textContent);
+
   // Clear button clicked
   if (target.id == "clear") {
   }
 
   // Back button clicked
   if (target.id == "back") {
-  }
-
-  // Divide button clicked
-  if (target.id == "divide") {
-  }
-
-  // Multiply button clicked
-  if (target.id == "multiply") {
-  }
-
-  // Add button clicked
-  if (target.id == "add") {
-  }
-
-  // Subtract button clicked
-  if (target.id == "subtract") {
   }
 });
