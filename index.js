@@ -16,14 +16,17 @@ const operate = (a, operator, b) => {
   }
 };
 
+const fill = (num) => {
+  const text = screen.textContent;
+  screen.textContent = text === "0" ? num : text + num;
+};
+
 btnContainer.addEventListener("click", (e) => {
   const target = e.target;
   if (!target || target.type != "submit") return;
 
   // Digit button clicked
-  if (target.classList.contains("digit-btn")) {
-    screen.textContent += target.textContent;
-  }
+  if (target.classList.contains("digit-btn")) fill(target.textContent);
 
   // Equals button clicked
   if (target.classList.contains("equals-btn")) {
