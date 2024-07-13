@@ -34,3 +34,12 @@ button {
   box-shadow: var(--shadow);
   padding: 16px;
 }
+
+.screen {
+  text-align: right;
+  background: linear-gradient(#f5f5cb, #d8deaa, #f5f5cb);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-size: 36px;
+  padding: 8px;
+}
