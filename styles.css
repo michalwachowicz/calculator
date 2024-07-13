@@ -18,6 +18,7 @@ button {
   font-family: var(--font);
   font-size: 24px;
   font-weight: bold;
+  flex: 1;
 }
 
 .container {
@@ -47,8 +48,7 @@ button {
   margin-bottom: 8px;
 }
 
-.btn-container,
-.special-rows {
+.btn-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -59,10 +59,21 @@ button {
   gap: 8px;
 }
 
-.row > button {
-  flex: 1;
+.zero-btn {
+  flex: 2;
 }
 
-.row > .zero-btn {
-  flex: 2;
+.point-btn {
+  max-width: calc(33% - 4px);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 3;
+}
+
+.equals-btn {
+  max-width: calc(25% - 6px);
 }
