@@ -52,19 +52,28 @@ btnContainer.addEventListener("click", (e) => {
   if (!target || target.type != "submit") return;
 
   // Digit button clicked
-  if (target.classList.contains("digit-btn")) fill(target.textContent);
+  if (target.classList.contains("digit-btn")) {
+    fill(target.textContent);
+    return;
+  }
 
   // Equals button clicked
   if (target.classList.contains("equals-btn")) {
+    return;
   }
 
-  if (target.classList.contains("operator")) updateOperator(target.textContent);
+  if (target.classList.contains("operator")) {
+    updateOperator(target.textContent);
+    return;
+  }
 
   // Clear button clicked
   if (target.id == "clear") {
+    return;
   }
 
   // Back button clicked
   if (target.id == "back") {
+    return;
   }
 });
