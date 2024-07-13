@@ -57,6 +57,12 @@ const equals = () => {
   currentOperator = null;
 };
 
+const clear = () => {
+  firstNum = 0;
+  currentOperator = null;
+  screen.textContent = "";
+};
+
 const backspace = () => {
   const text = screen.textContent;
 
@@ -91,6 +97,7 @@ btnContainer.addEventListener("click", (e) => {
 
   // Clear button clicked
   if (target.id == "clear") {
+    clear();
     return;
   }
 
