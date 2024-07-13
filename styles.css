@@ -42,4 +42,25 @@ button {
   box-shadow: var(--shadow);
   font-size: 36px;
   padding: 8px;
+  margin-bottom: 8px;
+}
+
+.btn-container,
+.special-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+.row > button {
+  flex: 1;
+}
+
+.row > .zero-btn {
+  flex: 2;
 }
