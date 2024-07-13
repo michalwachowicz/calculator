@@ -31,7 +31,7 @@ const fill = (num) => {
 const updateOperator = (operator) => {
   if (currentOperator) {
     secondNum = Number(screen.textContent);
-    const total = operate(firstNum, operator, secondNum);
+    const total = operate(firstNum, currentOperator, secondNum);
 
     firstNum = total;
     secondNum = 0;
