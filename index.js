@@ -5,19 +5,30 @@ let firstNum = 0;
 let currentOperator = null;
 let updated = false;
 
-const operate = (a, operator, b) => {
-  switch (operator) {
+const operate = () => {
+  const secondNum = Number(screen.textContent);
+  let total;
+
+  switch (currentOperator) {
     case "×":
-      return a * b;
+      total = firstNum * secondNum;
+      break;
     case "÷":
-      return b === 0 ? "Error" : a / b;
+      total = secondNum === 0 ? "Error" : firstNum / secondNum;
+      break;
     case "+":
-      return a + b;
+      total = firstNum + secondNum;
+      break;
     case "-":
-      return a - b;
+      total = firstNum - secondNum;
+      break;
     default:
-      return "Error";
+      total = "Error";
   }
+
+  updated = true;
+  firstNum = total;
+  screen.textContent = total;
 };
 
 const fill = (num) => {
@@ -29,17 +40,8 @@ const fill = (num) => {
 
 const updateOperator = (operator) => {
   if (currentOperator) {
-    const total = operate(
-      firstNum,
-      currentOperator,
-      Number(screen.textContent)
-    );
-
-    firstNum = total;
+    operate();
     currentOperator = operator;
-    updated = true;
-
-    screen.textContent = total;
     return;
   }
 
@@ -51,13 +53,8 @@ const updateOperator = (operator) => {
 const equals = () => {
   if (!currentOperator) return;
 
-  const total = operate(firstNum, currentOperator, Number(screen.textContent));
-
-  firstNum = total;
+  operate();
   currentOperator = null;
-  updated = true;
-
-  screen.textContent = total;
 };
 
 btnContainer.addEventListener("click", (e) => {
