@@ -45,13 +45,17 @@ button {
 }
 
 .screen {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   text-align: right;
   background: linear-gradient(#f5f5cb, #d8deaa, #f5f5cb);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
-  font-size: 36px;
+  font-size: 56px;
   padding: 8px;
   margin-bottom: 8px;
+  min-height: 90px;
 }
 
 .btn-container {
