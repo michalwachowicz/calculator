@@ -2,7 +2,6 @@ const btnContainer = document.querySelector(".btn-container");
 const screen = document.querySelector(".screen");
 
 let firstNum = 0;
-let secondNum = 0;
 let currentOperator = null;
 let updated = false;
 
@@ -30,11 +29,13 @@ const fill = (num) => {
 
 const updateOperator = (operator) => {
   if (currentOperator) {
-    secondNum = Number(screen.textContent);
-    const total = operate(firstNum, currentOperator, secondNum);
+    const total = operate(
+      firstNum,
+      currentOperator,
+      Number(screen.textContent)
+    );
 
     firstNum = total;
-    secondNum = 0;
     currentOperator = operator;
     updated = true;
 
@@ -45,6 +46,18 @@ const updateOperator = (operator) => {
   firstNum = Number(screen.textContent);
   currentOperator = operator;
   updated = true;
+};
+
+const equals = () => {
+  if (!currentOperator) return;
+
+  const total = operate(firstNum, currentOperator, Number(screen.textContent));
+
+  firstNum = total;
+  currentOperator = null;
+  updated = true;
+
+  screen.textContent = total;
 };
 
 btnContainer.addEventListener("click", (e) => {
@@ -59,6 +72,7 @@ btnContainer.addEventListener("click", (e) => {
 
   // Equals button clicked
   if (target.classList.contains("equals-btn")) {
+    equals();
     return;
   }
 
