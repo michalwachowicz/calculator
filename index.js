@@ -33,6 +33,9 @@ const operate = () => {
 
 const fill = (num) => {
   const text = screen.textContent;
+  const point = ".";
+
+  if (num === point && (text.includes(point) || text === "")) return;
 
   screen.textContent = text === "0" || updated ? num : text + num;
   updated = false;
