@@ -90,12 +90,24 @@ button {
   border-color: #ef3f4a;
 }
 
+.equals-btn:active {
+  background: linear-gradient(#ef3f4a, #f7616b);
+}
+
 .digit-btn {
   background: linear-gradient(#595959, #000);
   border-color: #000;
 }
 
+.digit-btn:active {
+  background: linear-gradient(#000, #595959);
+}
+
 .func-btn {
   background: linear-gradient(#7f7b74, #5a5549);
   border-color: #5a5549;
+}
+
+.func-btn:active {
+  background: linear-gradient(#5a5549, #7f7b74);
 }
