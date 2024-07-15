@@ -130,40 +130,32 @@ btnContainer.addEventListener("click", (e) => {
 window.addEventListener("keydown", (e) => {
   const key = e.key;
 
-  if (key >= 0 && key <= 9) {
-    press(".digit-btn", key);
-    return;
+  switch (key) {
+    case ".":
+      press(".point-btn");
+      break;
+    case "=":
+    case "Enter":
+      press(".equals-btn");
+      break;
+    case "*":
+      press(".operator", "×");
+      break;
+    case "/":
+      press(".operator", "÷");
+      break;
+    case "+":
+    case "-":
+      press(".operator", key);
+      break;
+    case "c":
+    case "C":
+      press("#clear");
+      break;
+    case "Backspace":
+      press("#back");
+      break;
+    default:
+      if (key >= 0 && key <= 9) press(".digit-btn", key);
   }
-
-  if (key == ".") {
-    press(".point-btn");
-    return;
-  }
-
-  if (key == "=") {
-    press(".equals-btn");
-    return;
-  }
-
-  if (key == "*") {
-    press(".operator", "×");
-    return;
-  }
-
-  if (key == "/") {
-    press(".operator", "÷");
-    return;
-  }
-
-  if (key == "+" || key == "-") {
-    press(".operator", key);
-    return;
-  }
-
-  if (key == "c" || key == "C") {
-    press("#clear");
-    return;
-  }
-
-  if (key == "Backspace") press("#back");
 });
