@@ -77,6 +77,22 @@ const backspace = () => {
   screen.textContent = text.substring(0, text.length - 1);
 };
 
+const press = (selector, text = null) => {
+  const element = text
+    ? [...document.querySelectorAll(selector)].find(
+        (el) => el.textContent == text
+      )
+    : document.querySelector(selector);
+  if (!element) return;
+
+  const activeClass = "active";
+
+  element.classList.add(activeClass);
+  element.click();
+
+  setTimeout(() => element.classList.remove(activeClass), 50);
+};
+
 btnContainer.addEventListener("click", (e) => {
   const target = e.target;
   if (!target || target.type != "submit") return;
@@ -111,35 +127,40 @@ btnContainer.addEventListener("click", (e) => {
 window.addEventListener("keydown", (e) => {
   const key = e.key;
 
-  if ((key >= 0 && key <= 9) || key == ".") {
-    fill(key);
+  if (key >= 0 && key <= 9) {
+    press(".digit-btn", key);
+    return;
+  }
+
+  if (key == ".") {
+    press(".point-btn");
     return;
   }
 
   if (key == "=") {
-    equals();
+    press(".equals-btn");
     return;
   }
 
   if (key == "*") {
-    updateOperator("×");
+    press(".operator", "×");
     return;
   }
 
   if (key == "/") {
-    updateOperator("÷");
+    press(".operator", "÷");
     return;
   }
 
   if (key == "+" || key == "-") {
-    updateOperator(key);
+    press(".operator", key);
     return;
   }
 
   if (key == "c" || key == "C") {
-    clear();
+    press("#clear");
     return;
   }
 
-  if (key == "Backspace") backspace();
+  if (key == "Backspace") press("#back");
 });

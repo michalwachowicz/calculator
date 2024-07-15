@@ -96,7 +96,8 @@ button {
   border-color: var(--equals-btn-dark);
 }
 
-.equals-btn:active {
+.equals-btn:active,
+.equals-btn.active {
   background: linear-gradient(var(--equals-btn-dark), var(--equals-btn-light));
 }
 
@@ -105,7 +106,8 @@ button {
   border-color: var(--digit-btn-dark);
 }
 
-.digit-btn:active {
+.digit-btn:active,
+.digit-btn.active {
   background: linear-gradient(var(--digit-btn-dark), var(--digit-btn-light));
 }
 
@@ -114,6 +116,7 @@ button {
   border-color: var(--func-btn-dark);
 }
 
-.func-btn:active {
+.func-btn:active,
+.func-btn.active {
   background: linear-gradient(var(--func-btn-dark), var(--func-btn-light));
 }
