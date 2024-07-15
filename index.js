@@ -51,6 +51,10 @@ const operate = () => {
     total = Math.round(Number(total) * 100) / 100;
   }
 
+  if (total.toString().length > MAX_CHAR) {
+    total = total.toExponential();
+  }
+
   updated = true;
   firstNum = total;
   screen.textContent = total;
