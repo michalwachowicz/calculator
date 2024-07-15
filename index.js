@@ -154,7 +154,12 @@ const press = (selector, text = null) => {
 };
 
 btnContainer.addEventListener("click", (e) => {
-  const target = e.target;
+  let target = e.target;
+
+  if (target.tagName === "IMG" && target.parentNode.type == "submit") {
+    target = target.parentNode;
+  }
+
   if (!target || target.type != "submit") return;
 
   // Digit button clicked
