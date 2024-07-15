@@ -2,6 +2,8 @@ const btnContainer = document.querySelector(".btn-container");
 const operators = document.querySelectorAll(".operator");
 const screen = document.querySelector(".screen-text");
 
+const MAX_CHAR = 20;
+
 let firstNum = 0;
 let currentOperator = null;
 let updated = false;
@@ -60,6 +62,7 @@ const fill = (num) => {
   const text = screen.textContent;
   const point = ".";
 
+  if (screen.textContent.length >= MAX_CHAR) return;
   if (num === point && (text.includes(point) || text === "")) return;
 
   screen.textContent =
