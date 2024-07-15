@@ -55,6 +55,9 @@ const highlightOperator = (operator) => {
 };
 
 const updateOperator = (operator) => {
+  const text = screen.textContent;
+  if (text === "" || text === "Error") return;
+
   if (currentOperator) {
     operate();
     highlightOperator(operator);
@@ -63,7 +66,7 @@ const updateOperator = (operator) => {
     return;
   }
 
-  firstNum = Number(screen.textContent);
+  firstNum = Number(text);
   currentOperator = operator;
   updated = true;
 
