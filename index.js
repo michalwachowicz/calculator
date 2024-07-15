@@ -1,10 +1,28 @@
 const btnContainer = document.querySelector(".btn-container");
 const operators = document.querySelectorAll(".operator");
-const screen = document.querySelector(".screen");
+const screen = document.querySelector(".screen-text");
 
 let firstNum = 0;
 let currentOperator = null;
 let updated = false;
+
+const adjustScreenFontSize = () => {
+  let fontSize = 56;
+  screen.style.fontSize = `${fontSize}px`;
+
+  while (
+    screen.clientWidth > screen.parentNode.clientWidth - 16 &&
+    fontSize > 24
+  ) {
+    fontSize--;
+    screen.style.fontSize = `${fontSize}px`;
+  }
+
+  while (screen.clientWidth < screen.scrollWidth && fontSize < 56) {
+    fontSize++;
+    screen.style.fontSize = `${fontSize}px`;
+  }
+};
 
 const operate = () => {
   const secondNum = Number(screen.textContent);
@@ -34,6 +52,8 @@ const operate = () => {
   updated = true;
   firstNum = total;
   screen.textContent = total;
+
+  adjustScreenFontSize();
 };
 
 const fill = (num) => {
@@ -45,6 +65,8 @@ const fill = (num) => {
   screen.textContent =
     (text === "0" && num !== point) || updated ? num : text + num;
   updated = false;
+
+  adjustScreenFontSize();
 };
 
 const clearOperators = () => {
@@ -103,6 +125,7 @@ const backspace = () => {
   }
 
   screen.textContent = text.substring(0, text.length - 1);
+  adjustScreenFontSize();
 };
 
 const press = (selector, text = null) => {
@@ -186,3 +209,5 @@ window.addEventListener("keydown", (e) => {
       if (key >= 0 && key <= 9) press(".digit-btn", key);
   }
 });
+
+window.addEventListener("resize", adjustScreenFontSize);
