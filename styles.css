@@ -2,6 +2,12 @@
   --font: Helvetica, Arial, sans-serif;
   --shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
   --border-radius: 8px;
+  --func-btn-light: #7f7b74;
+  --func-btn-dark: #5a5549;
+  --digit-btn-light: #7f7b74;
+  --digit-btn-dark: #000;
+  --equals-btn-light: #f7616b;
+  --equals-btn-dark: #ef3f4a;
 }
 
 * {
@@ -86,28 +92,28 @@ button {
 
 .equals-btn {
   max-width: calc(25% - 6px);
-  background: linear-gradient(#f7616b, #ef3f4a);
-  border-color: #ef3f4a;
+  background: linear-gradient(var(--equals-btn-light), var(--equals-btn-dark));
+  border-color: var(--equals-btn-dark);
 }
 
 .equals-btn:active {
-  background: linear-gradient(#ef3f4a, #f7616b);
+  background: linear-gradient(var(--equals-btn-dark), var(--equals-btn-light));
 }
 
 .digit-btn {
-  background: linear-gradient(#595959, #000);
-  border-color: #000;
+  background: linear-gradient(var(--digit-btn-light), var(--digit-btn-dark));
+  border-color: var(--digit-btn-dark);
 }
 
 .digit-btn:active {
-  background: linear-gradient(#000, #595959);
+  background: linear-gradient(var(--digit-btn-dark), var(--digit-btn-light));
 }
 
 .func-btn {
-  background: linear-gradient(#7f7b74, #5a5549);
-  border-color: #5a5549;
+  background: linear-gradient(var(--func-btn-light), var(--func-btn-dark));
+  border-color: var(--func-btn-dark);
 }
 
 .func-btn:active {
-  background: linear-gradient(#5a5549, #7f7b74);
+  background: linear-gradient(var(--func-btn-dark), var(--func-btn-light));
 }
