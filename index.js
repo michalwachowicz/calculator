@@ -88,10 +88,12 @@ const press = (selector, text = null) => {
 
   const activeClass = "active";
 
-  element.classList.add(activeClass);
-  element.click();
+  if (!element.classList.contains(activeClass)) {
+    element.classList.add(activeClass);
+    element.click();
 
-  setTimeout(() => element.classList.remove(activeClass), 50);
+    setTimeout(() => element.classList.remove(activeClass), 50);
+  }
 };
 
 btnContainer.addEventListener("click", (e) => {
