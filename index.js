@@ -37,7 +37,8 @@ const fill = (num) => {
 
   if (num === point && (text.includes(point) || text === "")) return;
 
-  screen.textContent = text === "0" || updated ? num : text + num;
+  screen.textContent =
+    (text === "0" && num !== point) || updated ? num : text + num;
   updated = false;
 };
 
