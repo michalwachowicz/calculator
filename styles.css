@@ -120,3 +120,7 @@ button {
 .func-btn.active {
   background: linear-gradient(var(--func-btn-dark), var(--func-btn-light));
 }
+
+.operator.current {
+  border: 3px solid #fff;
+}

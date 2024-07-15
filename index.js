@@ -1,4 +1,5 @@
 const btnContainer = document.querySelector(".btn-container");
+const operators = document.querySelectorAll(".operator");
 const screen = document.querySelector(".screen");
 
 let firstNum = 0;
@@ -42,9 +43,22 @@ const fill = (num) => {
   updated = false;
 };
 
+const clearOperators = () => {
+  operators.forEach((op) => op.classList.remove("current"));
+};
+
+const highlightOperator = (operator) => {
+  clearOperators();
+  [...operators]
+    .find((op) => op.textContent == operator)
+    .classList.add("current");
+};
+
 const updateOperator = (operator) => {
   if (currentOperator) {
     operate();
+    highlightOperator(operator);
+
     currentOperator = operator;
     return;
   }
@@ -52,12 +66,16 @@ const updateOperator = (operator) => {
   firstNum = Number(screen.textContent);
   currentOperator = operator;
   updated = true;
+
+  highlightOperator(operator);
 };
 
 const equals = () => {
   if (!currentOperator) return;
 
   operate();
+  clearOperators();
+
   currentOperator = null;
 };
 
@@ -65,6 +83,8 @@ const clear = () => {
   firstNum = 0;
   currentOperator = null;
   screen.textContent = "";
+
+  clearOperators();
 };
 
 const backspace = () => {
