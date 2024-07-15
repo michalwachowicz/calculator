@@ -107,3 +107,39 @@ btnContainer.addEventListener("click", (e) => {
   // Back button clicked
   if (target.id == "back") backspace();
 });
+
+window.addEventListener("keydown", (e) => {
+  const key = e.key;
+
+  if ((key >= 0 && key <= 9) || key == ".") {
+    fill(key);
+    return;
+  }
+
+  if (key == "=") {
+    equals();
+    return;
+  }
+
+  if (key == "*") {
+    updateOperator("×");
+    return;
+  }
+
+  if (key == "/") {
+    updateOperator("÷");
+    return;
+  }
+
+  if (key == "+" || key == "-") {
+    updateOperator(key);
+    return;
+  }
+
+  if (key == "c" || key == "C") {
+    clear();
+    return;
+  }
+
+  if (key == "Backspace") backspace();
+});
