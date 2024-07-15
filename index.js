@@ -27,6 +27,10 @@ const operate = () => {
       total = "Error";
   }
 
+  if (total != "Error") {
+    total = Math.round(Number(total) * 100) / 100;
+  }
+
   updated = true;
   firstNum = total;
   screen.textContent = total;
